@@ -1082,6 +1082,20 @@
   <div class="entrance-sub">FRONT-END ENGINEER</div>
 </div>
 
+<!-- ====== 顶部导航栏 ====== -->
+<nav class="site-nav" id="siteNav">
+  <div class="site-nav__inner container">
+    <a class="site-nav__brand" href="#" aria-label="IT白袍首页">
+      <span class="site-nav__seal">白</span>
+      <span>IT白袍</span>
+    </a>
+    <div class="site-nav__links">
+      <button class="site-nav__link is-active" data-tab="blogger">博主介绍</button>
+      <button class="site-nav__link" data-tab="projects">项目介绍</button>
+    </div>
+  </div>
+</nav>
+
 <!-- ====== 粒子画布 ====== -->
 <canvas id="particles-canvas"></canvas>
 
@@ -1150,6 +1164,9 @@
     向下滚动
   </div>
 </header>
+
+<!-- ====== 博主介绍 Tab 内容 ====== -->
+<div id="tab-blogger" class="tab-content active">
 
 <!-- ====== 一、基础能力 ====== -->
 <section id="basics">
@@ -1383,6 +1400,25 @@
     </div>
   </div>
 </footer>
+
+</div><!-- /#tab-blogger -->
+
+<!-- ====== 项目介绍 Tab 内容 ====== -->
+<div id="tab-projects" class="tab-content">
+  <section class="projects-section">
+    <div class="container">
+      <div class="projects-header">
+        <div class="section-label">Projects</div>
+        <h2 class="section-title">项目介绍</h2>
+        <p class="section-subtitle">精选项目展示，点击详情可在线体验</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="projects-list" id="projectsList">
+        <div class="projects-empty">项目数据加载中...</div>
+      </div>
+    </div>
+  </section>
+</div><!-- /#tab-projects -->
 
 <script>
 (function() {
