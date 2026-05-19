@@ -160,7 +160,7 @@
   /* ========== Hero ========== */
   .hero {
     min-height: 100vh; display: flex; align-items: center;
-    background: linear-gradient(160deg, #0c0c18 0%, #121222 25%, #0e0e1c 50%, #111124 70%, #0c0c18 100%);
+    background: linear-gradient(160deg, #081428 0%, #0d1f3c 25%, #0a1830 50%, #0e2242 70%, #081428 100%);
     position: relative; z-index: 1; overflow: hidden;
   }
 
@@ -1508,20 +1508,23 @@
     var AK = 'kB15Zlc2o6nNmgdSobeyf7oxqowgHuMz';
 
     // 先注册回调，再加载脚本（避免 script 缓存后回调未就绪）
+    var isMobileMap = window.innerWidth < 768;
     window.initBaiduMap = function() {
       try {
         var map = new BMap.Map('baiduMap');
         var xian = new BMap.Point(108.960715,34.271771);
         map.centerAndZoom(xian, 14);
         map.enableScrollWheelZoom(true);
+        map.disableDragging();
         map.addControl(new BMap.NavigationControl());
         map.addControl(new BMap.ScaleControl());
 
         var marker = new BMap.Marker(xian);
         map.addOverlay(marker);
 
+        var iwWidth = isMobileMap ? Math.min(window.innerWidth - 40, 260) : 260;
         var infoWindow = new BMap.InfoWindow(
-          '<div style="padding:18px 20px;font-family:-apple-system,BlinkMacSystemFont,\'PingFang SC\',\'Microsoft YaHei\',sans-serif;min-width:200px;">' +
+          '<div style="padding:18px 20px;font-family:-apple-system,BlinkMacSystemFont,\'PingFang SC\',\'Microsoft YaHei\',sans-serif;max-width:100%;box-sizing:border-box;">' +
           '<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">' +
           '<span style="font-size:26px;">&#x1F4CD;</span>' +
           '<div>' +
@@ -1535,7 +1538,7 @@
           '</div>' +
           '<div style="margin-top:8px;font-size:11px;color:#bbb;">基于百度地图 JS API v3.0</div>' +
           '</div>',
-          { width: 240, title: '', enableMessage: false }
+          { width: iwWidth, title: '', enableMessage: false }
         );
         marker.addEventListener('click', function() { this.openInfoWindow(infoWindow); });
         marker.openInfoWindow(infoWindow);
