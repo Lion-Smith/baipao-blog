@@ -516,8 +516,14 @@
     .site-nav__seal { width: 18px; height: 18px; font-size: 10px; }
     .site-nav__link { padding: 4px 10px; font-size: 12px; }
 
+    /* 项目 Banner */
+    .projects-banner { padding: 40px 0 48px; }
+    .projects-banner__inner { flex-direction: column; gap: 28px; }
+    .projects-banner__code-block { min-width: 0; width: 100%; font-size: 11px; padding: 16px 18px; }
+    .projects-banner__tags span { padding: 4px 10px; font-size: 11px; }
+
     /* 项目介绍区域 */
-    .projects-section { padding: 60px 0; }
+    .projects-section { padding: 48px 0; }
     .project-card { padding: 16px 18px; gap: 12px; }
     .project-card__icon { width: 50px; height: 50px; border-radius: 10px; font-size: 22px; }
     .project-card__name { font-size: 14px; }
@@ -594,8 +600,15 @@
     .site-nav__seal { width: 16px; height: 16px; font-size: 9px; border-radius: 2px; }
     .site-nav__link { padding: 3px 8px; font-size: 11px; }
 
+    /* 项目 Banner */
+    .projects-banner { padding: 32px 0 36px; }
+    .projects-banner__title { font-size: 26px; }
+    .projects-banner__subtitle { font-size: 13px; }
+    .projects-banner__code-block { font-size: 10px; padding: 14px 16px; min-width: 0; width: 100%; }
+    .projects-banner__tags span { padding: 3px 8px; font-size: 10px; }
+
     /* 项目介绍区域 */
-    .projects-section { padding: 48px 0; }
+    .projects-section { padding: 36px 0; }
     .projects-header { margin-bottom: 32px; }
     .projects-list { gap: 12px; }
     .project-card { padding: 14px 16px; gap: 10px; border-radius: 10px; }
@@ -972,14 +985,92 @@
   }
 
   /* ========== Tab 内容切换 ========== */
+  .tab-wrapper { position: relative; }
   .tab-content {
+    position: absolute; top: 0; left: 0; width: 100%;
     opacity: 0; pointer-events: none;
     transition: opacity 0.3s ease;
   }
   .tab-content.active {
+    position: relative;
     opacity: 1; pointer-events: auto;
   }
   .side-nav.hidden { opacity: 0; pointer-events: none; transition: opacity 0.25s ease; }
+
+  /* ========== 项目 Banner ========== */
+  .projects-banner {
+    position: relative; z-index: 1;
+    padding: 56px 0 64px;
+    background: linear-gradient(160deg, #0a1628 0%, #0f2440 40%, #0d1f3c 70%, #0a1830 100%);
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0,180,216,0.12);
+  }
+  .projects-banner::before {
+    content: '';
+    position: absolute; top: -50%; right: -20%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .projects-banner::after {
+    content: '';
+    position: absolute; bottom: -30%; left: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(0,180,216,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .projects-banner__inner {
+    position: relative; z-index: 1;
+    display: flex; align-items: center; gap: 48px;
+  }
+  .projects-banner__text { flex: 1; }
+  .projects-banner__title {
+    font-size: clamp(28px, 5vw, 44px); font-weight: 900;
+    color: #fff; margin-bottom: 12px; letter-spacing: -0.5px;
+  }
+  .projects-banner__subtitle {
+    font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.8;
+    margin-bottom: 20px; max-width: 480px;
+  }
+  .projects-banner__tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .projects-banner__tags span {
+    padding: 5px 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50px;
+    font-size: 12px; font-weight: 600;
+    color: rgba(255,255,255,0.65);
+    transition: all 0.25s;
+  }
+  .projects-banner__tags span:hover {
+    border-color: rgba(0,180,216,0.35);
+    color: #00b4d8;
+    background: rgba(0,180,216,0.06);
+  }
+  .projects-banner__visual {
+    flex-shrink: 0;
+    position: relative;
+  }
+  .projects-banner__code-block {
+    background: rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px 24px;
+    font-family: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', Consolas, monospace;
+    font-size: 13px; line-height: 1.7;
+    min-width: 340px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+  .projects-banner__glow {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%);
+    pointer-events: none; z-index: -1;
+  }
 
   /* ========== 项目介绍区域 ========== */
   .projects-section {
@@ -1114,6 +1205,9 @@
   <a href="#engineering" class="side-nav__dot" data-label="工程化" data-section="engineering" aria-label="跳转到工程化"></a>
   <a href="#libraries" class="side-nav__dot" data-label="组件库" data-section="libraries" aria-label="跳转到组件库"></a>
 </nav>
+
+<!-- ====== Tab 内容容器 ====== -->
+<div class="tab-wrapper">
 
 <!-- ====== 博主介绍 Tab 内容 ====== -->
 <div id="tab-blogger" class="tab-content active">
@@ -1405,6 +1499,39 @@
 
 <!-- ====== 项目介绍 Tab 内容 ====== -->
 <div id="tab-projects" class="tab-content">
+
+  <!-- ====== 项目 Banner ====== -->
+  <section class="projects-banner">
+    <div class="container">
+      <div class="projects-banner__inner">
+        <div class="projects-banner__text">
+          <div class="section-label" style="color:#00b4d8;">Portfolio</div>
+          <h2 class="projects-banner__title">AI 赋能 · 全栈交付</h2>
+          <p class="projects-banner__subtitle">Vue · React · Angular 三大框架实战<br>结合 AI 大模型工具提升研发效率与代码质量</p>
+          <div class="projects-banner__tags">
+            <span>Vue 2/3</span><span>React</span><span>Angular</span>
+            <span>TypeScript</span><span>Node.js</span><span>uni-app</span>
+            <span>AI Copilot</span><span>Claude Code</span>
+          </div>
+        </div>
+        <div class="projects-banner__visual">
+          <div class="projects-banner__code-block">
+            <code><span style="color:#7C3AED;">import</span> { <span style="color:#00b4d8;">AIEngineer</span> } <span style="color:#7C3AED;">from</span> <span style="color:#FFD60A;">'itbaipao'</span>;
+
+<span style="color:#7C3AED;">const</span> <span style="color:#00b4d8;">me</span> = <span style="color:#7C3AED;">new</span> <span style="color:#00b4d8;">AIEngineer</span>({
+  <span style="color:#00b4d8;">stack</span>: [<span style="color:#FFD60A;">'Vue'</span>, <span style="color:#FFD60A;">'React'</span>, <span style="color:#FFD60A;">'Angular'</span>],
+  <span style="color:#00b4d8;">ai</span>: <span style="color:#FF6B35;">true</span>,
+  <span style="color:#00b4d8;">quality</span>: <span style="color:#FFD60A;">'production'</span>
+});
+
+<span style="color:#00b4d8;">me</span>.<span style="color:#FFD60A;">build</span>(<span style="color:#FFD60A;">'amazing projects'</span>);</code>
+          </div>
+          <div class="projects-banner__glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="projects-section">
     <div class="container">
       <div class="projects-header">
@@ -1419,6 +1546,8 @@
     </div>
   </section>
 </div><!-- /#tab-projects -->
+
+</div><!-- /.tab-wrapper -->
 
 <script>
   /* ========== Tab 切换 ========== */
