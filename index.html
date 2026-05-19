@@ -1115,6 +1115,9 @@
   <a href="#libraries" class="side-nav__dot" data-label="组件库" data-section="libraries" aria-label="跳转到组件库"></a>
 </nav>
 
+<!-- ====== 博主介绍 Tab 内容 ====== -->
+<div id="tab-blogger" class="tab-content active">
+
 <!-- ====== Hero ====== -->
 <header class="hero" id="hero">
   <div class="hero-glow hero-glow--1"></div>
@@ -1164,9 +1167,6 @@
     向下滚动
   </div>
 </header>
-
-<!-- ====== 博主介绍 Tab 内容 ====== -->
-<div id="tab-blogger" class="tab-content active">
 
 <!-- ====== 一、基础能力 ====== -->
 <section id="basics">
@@ -1456,10 +1456,42 @@
   var projects = [
     {
       id: 'proj-1',
-      name: '示例项目',
-      desc: '这是一个示例项目描述，后续可替换为真实项目信息。',
-      icon: '🚀',
-      tags: ['Vue 3', 'TypeScript'],
+      name: '智慧交通可视化大屏',
+      desc: '基于 Vue 3 + Echarts + Baidu Map 的公路交通实时监控大屏，支持车流量热力图、路况预警、GIS 轨迹回放。',
+      icon: '🚦',
+      tags: ['Vue 3', 'Echarts', 'Baidu Map', 'WebSocket'],
+      demoUrl: '#'
+    },
+    {
+      id: 'proj-2',
+      name: 'IoT 设备管理平台',
+      desc: '物联网设备全生命周期管理系统，支持设备注册、固件 OTA 升级、数据采集看板、告警规则引擎。',
+      icon: '📡',
+      tags: ['React', 'Ant Design', 'Node.js', 'MQTT'],
+      demoUrl: '#'
+    },
+    {
+      id: 'proj-3',
+      name: '跨端电商小程序',
+      desc: '基于 uni-app 的全平台电商应用，一套代码覆盖微信小程序、H5、App，集成支付与物流追踪。',
+      icon: '🛒',
+      tags: ['uni-app', 'Vue 2', 'uView UI', '微信支付'],
+      demoUrl: '#'
+    },
+    {
+      id: 'proj-4',
+      name: '低代码表单设计器',
+      desc: '拖拽式表单搭建工具，支持 20+ 控件类型、条件逻辑、数据校验、一键导出 JSON Schema。',
+      icon: '🧩',
+      tags: ['Angular', 'TypeScript', 'ng-zorro', 'RxJS'],
+      demoUrl: '#'
+    },
+    {
+      id: 'proj-5',
+      name: 'SSR 企业官网',
+      desc: '基于 Nuxt 3 的服务端渲染企业官网，SEO 友好，Lighthouse 性能评分 95+，支持多语言切换。',
+      icon: '🏢',
+      tags: ['Nuxt 3', 'Vue 3', 'SSR', 'i18n'],
       demoUrl: '#'
     }
   ];
