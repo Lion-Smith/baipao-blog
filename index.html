@@ -989,15 +989,17 @@
   }
 
   /* ========== Tab 内容切换 ========== */
-  .tab-wrapper { position: relative; }
+  .tab-wrapper { position: relative; flex: 1; }
   .tab-content {
-    position: absolute; top: 0; left: 0; width: 100%;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.3s ease;
+    display: none;
   }
   .tab-content.active {
-    position: relative;
-    opacity: 1; pointer-events: auto;
+    display: block;
+    animation: tabFadeIn 0.35s ease;
+  }
+  @keyframes tabFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
   .side-nav.hidden { opacity: 0; pointer-events: none; transition: opacity 0.25s ease; }
 
