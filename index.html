@@ -1421,6 +1421,81 @@
 </div><!-- /#tab-projects -->
 
 <script>
+  /* ========== Tab 切换 ========== */
+  var navLinks = document.querySelectorAll('.site-nav__link');
+  var tabBlogger = document.getElementById('tab-blogger');
+  var tabProjects = document.getElementById('tab-projects');
+  var sideNav = document.getElementById('sideNav');
+
+  function switchTab(tabName) {
+    navLinks.forEach(function(link) {
+      var isActive = link.getAttribute('data-tab') === tabName;
+      link.classList.toggle('is-active', isActive);
+      link.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    if (tabName === 'blogger') {
+      tabBlogger.classList.add('active');
+      tabProjects.classList.remove('active');
+      if (sideNav) sideNav.classList.remove('hidden');
+    } else {
+      tabProjects.classList.add('active');
+      tabBlogger.classList.remove('active');
+      if (sideNav) sideNav.classList.add('hidden');
+    }
+  }
+
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      var tab = this.getAttribute('data-tab');
+      if (tab) switchTab(tab);
+    });
+  });
+
+  /* ========== 项目卡片渲染 ========== */
+  var projects = [
+    {
+      id: 'proj-1',
+      name: '示例项目',
+      desc: '这是一个示例项目描述，后续可替换为真实项目信息。',
+      icon: '🚀',
+      tags: ['Vue 3', 'TypeScript'],
+      demoUrl: '#'
+    }
+  ];
+
+  var projectsList = document.getElementById('projectsList');
+
+  function renderProjects() {
+    if (!projectsList) return;
+
+    if (projects.length === 0) {
+      projectsList.innerHTML = '<div class="projects-empty">暂无项目展示，敬请期待</div>';
+      return;
+    }
+
+    var html = '';
+    projects.forEach(function(proj) {
+      var tagsHtml = proj.tags.map(function(t) {
+        return '<span class="project-card__tag">' + t + '</span>';
+      }).join('');
+
+      html +=
+        '<a class="project-card" href="' + proj.demoUrl + '" target="_blank" rel="noopener">' +
+          '<div class="project-card__icon">' + proj.icon + '</div>' +
+          '<div class="project-card__info">' +
+            '<div class="project-card__name">' + proj.name + '</div>' +
+            '<div class="project-card__desc">' + proj.desc + '</div>' +
+            '<div class="project-card__tags">' + tagsHtml + '</div>' +
+          '</div>' +
+          '<span class="project-card__btn">查看详情</span>' +
+        '</a>';
+    });
+    projectsList.innerHTML = html;
+  }
+
+  renderProjects();
+
 (function() {
   /* ========== 入场动画 ========== */
   const overlay = document.getElementById('entranceOverlay');
