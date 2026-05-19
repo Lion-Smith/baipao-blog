@@ -1083,15 +1083,15 @@
 </div>
 
 <!-- ====== 顶部导航栏 ====== -->
-<nav class="site-nav" id="siteNav">
+<nav class="site-nav" id="siteNav" aria-label="主导航">
   <div class="site-nav__inner container">
     <a class="site-nav__brand" href="#" aria-label="IT白袍首页">
       <span class="site-nav__seal">白</span>
       <span>IT白袍</span>
     </a>
-    <div class="site-nav__links">
-      <button class="site-nav__link is-active" data-tab="blogger">博主介绍</button>
-      <button class="site-nav__link" data-tab="projects">项目介绍</button>
+    <div class="site-nav__links" role="tablist">
+      <button class="site-nav__link is-active" data-tab="blogger" role="tab" aria-selected="true">博主介绍</button>
+      <button class="site-nav__link" data-tab="projects" role="tab" aria-selected="false">项目介绍</button>
     </div>
   </div>
 </nav>
