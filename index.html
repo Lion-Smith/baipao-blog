@@ -527,11 +527,11 @@
     /* 项目介绍区域 */
     .projects-section { padding: 40px 0; }
     .projects-header { margin-bottom: 32px; }
-    .project-card { padding: 16px 18px; gap: 12px; flex-wrap: wrap; }
+    .project-card { padding: 16px 18px; gap: 12px; }
     .project-card__icon { width: 50px; height: 50px; border-radius: 10px; font-size: 22px; }
-    .project-card__info { flex: 1 1 calc(100% - 62px); min-width: 0; }
     .project-card__name { font-size: 14px; }
     .project-card__desc { font-size: 12px; }
+    .project-card__btn { padding: 5px 12px; font-size: 11px; }
     .project-card__actions { margin-left: 62px; margin-top: 4px; }
   }
 
@@ -616,13 +616,13 @@
     .projects-header { margin-bottom: 28px; }
     .projects-list { gap: 12px; }
     .project-card { padding: 14px 16px; gap: 10px; border-radius: 10px; flex-wrap: wrap; }
-    .project-card__icon { width: 40px; height: 40px; border-radius: 8px; font-size: 18px; }
-    .project-card__info { flex: 1 1 calc(100% - 50px); min-width: 0; }
+    .project-card__icon { width: 40px; height: 40px; border-radius: 8px; font-size: 18px; flex-shrink: 0; }
+    .project-card__info { flex: 1 1 0; min-width: 160px; }
     .project-card__name { font-size: 13px; }
-    .project-card__desc { font-size: 11px; }
+    .project-card__desc { font-size: 11px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; }
     .project-card__tag { font-size: 10px; padding: 1px 8px; }
-    .project-card__actions { margin-left: 50px; margin-top: 4px; }
     .project-card__btn { padding: 5px 10px; font-size: 10px; border-radius: 4px; }
+    .project-card__actions { width: 100%; margin-left: 50px; margin-top: 4px; }
   }
 
   /* --- iPhone 14 Pro Max / 15 Pro Max / 大屏安卓 (401px - 480px) --- */
@@ -1158,6 +1158,16 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 32px rgba(0,0,0,0.2);
   }
+  .project-card:hover .project-card__btn {
+    background: linear-gradient(135deg, #FF6B35, #E0552A);
+    color: #fff; border-color: transparent;
+    box-shadow: 0 4px 16px rgba(255,107,53,0.3);
+  }
+  .project-card:hover .project-card__btn--dome {
+    background: linear-gradient(135deg, #00b4d8, #0098b0);
+    color: #fff; border-color: transparent;
+    box-shadow: 0 4px 16px rgba(0,180,216,0.3);
+  }
   .project-card__icon {
     width: 64px; height: 64px;
     background: rgba(0,180,216,0.1);
@@ -1192,7 +1202,7 @@
     align-items: stretch;
   }
   .project-card__btn {
-    display: block; text-align: center;
+    display: inline-block; text-align: center;
     padding: 7px 16px;
     border: 1px solid rgba(255,107,53,0.3);
     border-radius: 6px;
@@ -1201,6 +1211,7 @@
     transition: all 0.25s ease;
     white-space: nowrap;
     text-decoration: none;
+    flex-shrink: 0;
   }
   .project-card__btn:hover {
     background: linear-gradient(135deg, #FF6B35, #E0552A);
@@ -1750,12 +1761,21 @@
 
       var hasUrl = proj.demoUrl && proj.demoUrl !== '#';
       var hasDome = !!proj.domeUrl;
-      var hasActions = hasUrl || hasDome;
-      // 无按钮或双按钮时用div，单按钮时用a让整卡可点击
-      var tag = (hasUrl && !hasDome) ? 'a' : 'div';
-      var href = (hasUrl && !hasDome) ? ' href="' + proj.demoUrl + '" target="_blank" rel="noopener"' : '';
-      var btnHtml = hasUrl ? '<a class="project-card__btn" href="' + proj.demoUrl + '" target="_blank" rel="noopener">查看详情</a>' : '';
-      var domeHtml = hasDome ? '<a class="project-card__btn project-card__btn--dome" href="' + proj.domeUrl + '" target="_blank" rel="noopener">DOME系统</a>' : '';
+      var isSingle = hasUrl && !hasDome;  // 单链接：整卡可点击
+      var isDouble = hasUrl && hasDome;   // 双链接：按钮组
+
+      var tag = isSingle ? 'a' : 'div';
+      var href = isSingle ? ' href="' + proj.demoUrl + '" target="_blank" rel="noopener"' : '';
+
+      var actionsHtml = '';
+      if (isSingle) {
+        actionsHtml = '<span class="project-card__btn">查看详情</span>';
+      } else if (isDouble) {
+        actionsHtml = '<div class="project-card__actions">' +
+          '<a class="project-card__btn" href="' + proj.demoUrl + '" target="_blank" rel="noopener">查看详情</a>' +
+          '<a class="project-card__btn project-card__btn--dome" href="' + proj.domeUrl + '" target="_blank" rel="noopener">DOME系统</a>' +
+        '</div>';
+      }
 
       html +=
         '<' + tag + ' class="project-card"' + href + '>' +
@@ -1765,7 +1785,7 @@
             '<div class="project-card__desc">' + proj.desc + '</div>' +
             '<div class="project-card__tags">' + tagsHtml + '</div>' +
           '</div>' +
-          '<div class="project-card__actions">' + btnHtml + domeHtml + '</div>' +
+          actionsHtml +
         '</' + tag + '>';
     });
     projectsList.innerHTML = html;
