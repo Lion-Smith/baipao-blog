@@ -1660,6 +1660,18 @@
   </div>
 </footer>
 
+<!-- ====== 项目描述弹窗 ====== -->
+<div class="project-modal-overlay" id="projectModalOverlay">
+  <div class="project-modal">
+    <button class="project-modal__close" id="projectModalClose">&times;</button>
+    <div class="project-modal__icon" id="projectModalIcon"></div>
+    <div class="project-modal__name" id="projectModalName"></div>
+    <div class="project-modal__desc" id="projectModalDesc"></div>
+    <div class="project-modal__tags" id="projectModalTags"></div>
+    <div class="project-modal__btns" id="projectModalBtns"></div>
+  </div>
+</div>
+
 <script>
   /* ========== Tab 切换 ========== */
   var navLinks = document.querySelectorAll('.site-nav__link');
@@ -2307,18 +2319,6 @@
   });
 })();
 </script>
-
-<!-- ====== 项目描述弹窗 ====== -->
-<div class="project-modal-overlay" id="projectModalOverlay">
-  <div class="project-modal">
-    <button class="project-modal__close" id="projectModalClose">&times;</button>
-    <div class="project-modal__icon" id="projectModalIcon"></div>
-    <div class="project-modal__name" id="projectModalName"></div>
-    <div class="project-modal__desc" id="projectModalDesc"></div>
-    <div class="project-modal__tags" id="projectModalTags"></div>
-    <div class="project-modal__btns" id="projectModalBtns"></div>
-  </div>
-</div>
 
 </body>
 </html>
