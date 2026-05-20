@@ -1158,16 +1158,6 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 32px rgba(0,0,0,0.2);
   }
-  .project-card:hover .project-card__btn {
-    background: linear-gradient(135deg, #FF6B35, #E0552A);
-    color: #fff; border-color: transparent;
-    box-shadow: 0 4px 16px rgba(255,107,53,0.3);
-  }
-  .project-card:hover .project-card__btn--dome {
-    background: linear-gradient(135deg, #00b4d8, #0098b0);
-    color: #fff; border-color: transparent;
-    box-shadow: 0 4px 16px rgba(0,180,216,0.3);
-  }
   .project-card__icon {
     width: 64px; height: 64px;
     background: rgba(0,180,216,0.1);
@@ -1213,9 +1203,19 @@
     text-decoration: none;
     flex-shrink: 0;
   }
+  .project-card__btn:hover {
+    background: linear-gradient(135deg, #FF6B35, #E0552A);
+    color: #fff; border-color: transparent;
+    box-shadow: 0 4px 16px rgba(255,107,53,0.3);
+  }
   .project-card__btn--dome {
     border-color: rgba(0,180,216,0.3);
     color: #00b4d8;
+  }
+  .project-card__btn--dome:hover {
+    background: linear-gradient(135deg, #00b4d8, #0098b0);
+    color: #fff; border-color: transparent;
+    box-shadow: 0 4px 16px rgba(0,180,216,0.3);
   }
   .projects-empty {
     text-align: center; padding: 60px 20px;
