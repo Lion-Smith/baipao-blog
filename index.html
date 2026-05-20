@@ -532,7 +532,7 @@
     .project-card__info { flex: 1 1 calc(100% - 62px); min-width: 0; }
     .project-card__name { font-size: 14px; }
     .project-card__desc { font-size: 12px; }
-    .project-card__btn { margin-left: 62px; margin-top: 4px; padding: 5px 12px; font-size: 11px; }
+    .project-card__actions { margin-left: 62px; margin-top: 4px; }
   }
 
   /* --- 小屏手机 iPhone SE / 6/7/8 / X / 12/13 Mini (320px - 400px) --- */
@@ -621,7 +621,8 @@
     .project-card__name { font-size: 13px; }
     .project-card__desc { font-size: 11px; }
     .project-card__tag { font-size: 10px; padding: 1px 8px; }
-    .project-card__btn { margin-left: 50px; margin-top: 4px; padding: 5px 10px; font-size: 10px; border-radius: 4px; }
+    .project-card__actions { margin-left: 50px; margin-top: 4px; }
+    .project-card__btn { padding: 5px 10px; font-size: 10px; border-radius: 4px; }
   }
 
   /* --- iPhone 14 Pro Max / 15 Pro Max / 大屏安卓 (401px - 480px) --- */
@@ -1185,8 +1186,13 @@
     font-size: 11px; font-weight: 600;
     color: #00b4d8;
   }
-  .project-card__btn {
+  .project-card__actions {
     flex-shrink: 0;
+    display: flex; flex-direction: column; gap: 6px;
+    align-items: stretch;
+  }
+  .project-card__btn {
+    display: block; text-align: center;
     padding: 7px 16px;
     border: 1px solid rgba(255,107,53,0.3);
     border-radius: 6px;
@@ -1194,11 +1200,21 @@
     font-size: 12px; font-weight: 600;
     transition: all 0.25s ease;
     white-space: nowrap;
+    text-decoration: none;
   }
-  .project-card:hover .project-card__btn {
+  .project-card__btn:hover {
     background: linear-gradient(135deg, #FF6B35, #E0552A);
     color: #fff; border-color: transparent;
     box-shadow: 0 4px 16px rgba(255,107,53,0.3);
+  }
+  .project-card__btn--dome {
+    border-color: rgba(0,180,216,0.3);
+    color: #00b4d8;
+  }
+  .project-card__btn--dome:hover {
+    background: linear-gradient(135deg, #00b4d8, #0098b0);
+    color: #fff; border-color: transparent;
+    box-shadow: 0 4px 16px rgba(0,180,216,0.3);
   }
   .projects-empty {
     text-align: center; padding: 60px 20px;
@@ -1655,7 +1671,8 @@
       desc: '企业云平台系统是企业主推的设备管理平台，主要功能是用户通过云平台"绑定设备"功能将设备绑定到云平台，可在云平台上实现对设备的配置、管理、监控等相关操作；支持多台设备绑定，实现远程管控，支持多个项目统一管理。负责大屏监控模块的界面功能开发，以接入管理平台设备上报的大量实时数据为支撑，通过ECharts图表3D绘制等技术实现可视化处理，并兼容不同显示分辨率的适配。',
       icon: '☁️',
       tags: ['Vue.js', 'ECharts', '3D图表', '响应式布局', '数据可视化'],
-      demoUrl: 'https://lion-smith.github.io/system-dome/'
+      demoUrl: 'https://iot.yowifi.net/',
+      domeUrl: 'https://lion-smith.github.io/system-dome/'
     },
     {
       id: 'proj-4',
@@ -1732,9 +1749,13 @@
       }).join('');
 
       var hasUrl = proj.demoUrl && proj.demoUrl !== '#';
-      var tag = hasUrl ? 'a' : 'div';
-      var href = hasUrl ? ' href="' + proj.demoUrl + '" target="_blank" rel="noopener"' : '';
-      var btnHtml = hasUrl ? '<span class="project-card__btn">查看详情</span>' : '';
+      var hasDome = !!proj.domeUrl;
+      var hasActions = hasUrl || hasDome;
+      // 无按钮或双按钮时用div，单按钮时用a让整卡可点击
+      var tag = (hasUrl && !hasDome) ? 'a' : 'div';
+      var href = (hasUrl && !hasDome) ? ' href="' + proj.demoUrl + '" target="_blank" rel="noopener"' : '';
+      var btnHtml = hasUrl ? '<a class="project-card__btn" href="' + proj.demoUrl + '" target="_blank" rel="noopener">查看详情</a>' : '';
+      var domeHtml = hasDome ? '<a class="project-card__btn project-card__btn--dome" href="' + proj.domeUrl + '" target="_blank" rel="noopener">DOME系统</a>' : '';
 
       html +=
         '<' + tag + ' class="project-card"' + href + '>' +
@@ -1744,7 +1765,7 @@
             '<div class="project-card__desc">' + proj.desc + '</div>' +
             '<div class="project-card__tags">' + tagsHtml + '</div>' +
           '</div>' +
-          btnHtml +
+          '<div class="project-card__actions">' + btnHtml + domeHtml + '</div>' +
         '</' + tag + '>';
     });
     projectsList.innerHTML = html;
