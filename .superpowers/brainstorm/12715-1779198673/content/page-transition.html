@@ -1,0 +1,67 @@
+<h2>页面切换方式</h2>
+<p class="subtitle">点击导航"博主介绍"←→"项目介绍"时，内容的切换动效</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: var(--bg); padding: 24px; border-radius: 12px;">
+      <div style="text-align: center; padding: 30px 0;">
+        <div style="display: flex; justify-content: center; gap: 32px; font-size: 13px; font-weight: 600; color: var(--text-secondary);">
+          <span style="color: #FF6B35;">● 博主介绍</span>
+          <span>○ 项目介绍</span>
+        </div>
+        <div style="margin-top: 16px; padding: 30px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; font-size: 13px; color: var(--text-secondary);">
+          <span style="opacity: 0.4;">← 旧内容向左滑出</span>
+          &nbsp;&nbsp;
+          <span style="color: var(--orange); font-weight: 600;">新内容从右滑入 →</span>
+        </div>
+      </div>
+      <div style="color: rgba(0,0,0,0.35); font-size: 11px; margin-top: 8px; text-align: center;">水平滑动切换</div>
+    </div>
+    <div class="card-body">
+      <h3>方案 A — 左右滑动</h3>
+      <p>内容区域水平滑动，旧内容左滑消失、新内容从右进入。有方向感，流畅现代。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: var(--bg); padding: 24px; border-radius: 12px;">
+      <div style="text-align: center; padding: 30px 0;">
+        <div style="display: flex; justify-content: center; gap: 32px; font-size: 13px; font-weight: 600; color: var(--text-secondary);">
+          <span style="color: #FF6B35;">● 博主介绍</span>
+          <span>○ 项目介绍</span>
+        </div>
+        <div style="margin-top: 16px; padding: 30px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; font-size: 13px; color: var(--text-secondary);">
+          <span style="font-weight: 600; color: var(--text);">内容淡出 → 内容淡入</span>
+          <br>
+          <span style="font-size: 11px; opacity: 0.5;">transition: opacity 0.3s ease</span>
+        </div>
+      </div>
+      <div style="color: rgba(0,0,0,0.35); font-size: 11px; margin-top: 8px; text-align: center;">淡入淡出切换</div>
+    </div>
+    <div class="card-body">
+      <h3>方案 B — 淡入淡出</h3>
+      <p>旧内容淡出，新内容淡入。平滑不突兀，实现简单。适合内容量差异较大的切换。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: var(--bg); padding: 24px; border-radius: 12px;">
+      <div style="text-align: center; padding: 30px 0;">
+        <div style="display: flex; justify-content: center; gap: 32px; font-size: 13px; font-weight: 600; color: var(--text-secondary);">
+          <span style="color: #FF6B35;">● 博主介绍</span>
+          <span>○ 项目介绍</span>
+        </div>
+        <div style="margin-top: 16px; padding: 30px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; font-size: 13px; color: var(--text-secondary);">
+          <span style="opacity: 0.35; transform: translateY(10px); display: inline-block;">旧内容上移 + 淡出</span>
+          <br>
+          <span style="color: var(--orange); font-weight: 600; opacity: 0; animation: none; display: inline-block;">新内容从下上浮 + 淡入</span>
+        </div>
+      </div>
+      <div style="color: rgba(0,0,0,0.35); font-size: 11px; margin-top: 8px; text-align: center;">垂直上浮切换</div>
+    </div>
+    <div class="card-body">
+      <h3>方案 C — 上下浮移</h3>
+      <p>内容上下浮移 + 淡变，类似 iOS 导航切换。动感更强，与现有 fade-in 动画体系一致。</p>
+    </div>
+  </div>
+</div>

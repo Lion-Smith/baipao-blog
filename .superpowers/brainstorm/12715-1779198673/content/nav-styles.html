@@ -1,0 +1,56 @@
+<h2>导航栏视觉风格选择</h2>
+<p class="subtitle">当前网站采用科技蓝 + 古风印章 + 粒子背景，导航栏需要统一此风格</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: linear-gradient(160deg, #081428 0%, #0d1f3c 100%); padding: 20px; border-radius: 12px;">
+      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: rgba(255,255,255,0.06); border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+        <div style="font-family: KaiTi, STKaiti, serif; font-size: 18px; font-weight: 900; color: #FFF8E7; background: #C41E3A; width: 30px; height: 30px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 13px;">白</div>
+        <div style="color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 600; margin-left: auto; display: flex; gap: 16px;">
+          <span style="color: #FF6B35; border-bottom: 2px solid #FF6B35; padding-bottom: 4px;">博主介绍</span>
+          <span>项目介绍</span>
+        </div>
+      </div>
+      <div style="color: rgba(255,255,255,0.4); font-size: 11px; margin-top: 8px; text-align: center;">玻璃拟态半透明导航</div>
+    </div>
+    <div class="card-body">
+      <h3>方案 A — 玻璃拟态</h3>
+      <p>半透明毛玻璃效果，与 Hero 区域融合过渡自然。选中态用橙色下划线 + 文字高亮。匹配现有 badge 和 tag 的 glass 风格。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: linear-gradient(160deg, #081428 0%, #0d1f3c 100%); padding: 20px; border-radius: 12px;">
+      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #0a1a35; border-radius: 10px; border-bottom: 1px solid rgba(0,180,216,0.3);">
+        <div style="font-family: KaiTi, STKaiti, serif; font-size: 18px; font-weight: 900; color: #FFF8E7; background: #C41E3A; width: 30px; height: 30px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 13px;">白</div>
+        <div style="color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 600; margin-left: auto; display: flex; gap: 16px;">
+          <span style="color: #00b4d8; background: rgba(0,180,216,0.1); padding: 4px 12px; border-radius: 6px;">博主介绍</span>
+          <span>项目介绍</span>
+        </div>
+      </div>
+      <div style="color: rgba(255,255,255,0.4); font-size: 11px; margin-top: 8px; text-align: center;">深色实底 + 青色 pill 选中态</div>
+    </div>
+    <div class="card-body">
+      <h3>方案 B — 深色实底</h3>
+      <p>不透明深蓝背景，底部用青色线条分隔。选中态用青色 pill 标签。更稳重的技术感，与 Section 分隔线呼应。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: linear-gradient(160deg, #081428 0%, #0d1f3c 100%); padding: 20px; border-radius: 12px;">
+      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: linear-gradient(90deg, rgba(8,20,40,0.95) 0%, rgba(13,31,60,0.95) 100%); border-radius: 10px; position: relative; overflow: hidden;">
+        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, #FF6B35, #00b4d8, #7C3AED);"></div>
+        <div style="font-family: KaiTi, STKaiti, serif; font-size: 18px; font-weight: 900; color: #FFF8E7; background: #C41E3A; width: 30px; height: 30px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 13px;">白</div>
+        <div style="color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 600; margin-left: auto; display: flex; gap: 16px;">
+          <span style="color: #fff;">博主介绍</span>
+          <span>项目介绍</span>
+        </div>
+      </div>
+      <div style="color: rgba(255,255,255,0.4); font-size: 11px; margin-top: 8px; text-align: center;">渐变底部线条导航</div>
+    </div>
+    <div class="card-body">
+      <h3>方案 C — 渐变底线</h3>
+      <p>底部用橙→青→紫渐变线贯穿，科技感更强的暗色底。选中态纯白文字。与 Hero name 的 shimmer 渐变呼应。</p>
+    </div>
+  </div>
+</div>

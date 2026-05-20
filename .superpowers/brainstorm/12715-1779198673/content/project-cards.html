@@ -1,0 +1,94 @@
+<h2>项目卡片展示风格</h2>
+<p class="subtitle">项目介绍页的核心元素——展示你的项目，用户可点击跳转体验</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: var(--bg); padding: 24px; border-radius: 12px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <div style="background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; position: relative;">
+          <div style="width: 100%; height: 80px; background: linear-gradient(135deg, #e8f4f8, #d0e8f0); border-radius: 6px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; font-size: 28px;">🚀</div>
+          <div style="font-size: 13px; font-weight: 700; color: var(--text);">项目名称</div>
+          <div style="font-size: 11px; color: var(--text-secondary); margin-top: 3px;">简短描述，一行截断...</div>
+          <div style="display: flex; gap: 4px; margin-top: 8px;">
+            <span style="padding: 2px 8px; background: rgba(0,180,216,0.1); border-radius: 4px; font-size: 10px; color: var(--cyan);">Vue 3</span>
+            <span style="padding: 2px 8px; background: rgba(124,58,237,0.1); border-radius: 4px; font-size: 10px; color: var(--purple);">TS</span>
+          </div>
+        </div>
+        <div style="background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px;">
+          <div style="width: 100%; height: 80px; background: linear-gradient(135deg, #fff0e6, #ffe8d6); border-radius: 6px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; font-size: 28px;">📊</div>
+          <div style="font-size: 13px; font-weight: 700; color: var(--text);">可视化大屏</div>
+          <div style="font-size: 11px; color: var(--text-secondary); margin-top: 3px;">数据可视化展示...</div>
+          <div style="display: flex; gap: 4px; margin-top: 8px;">
+            <span style="padding: 2px 8px; background: rgba(255,107,53,0.1); border-radius: 4px; font-size: 10px; color: var(--orange);">Echarts</span>
+          </div>
+        </div>
+      </div>
+      <div style="color: rgba(0,0,0,0.35); font-size: 11px; margin-top: 8px; text-align: center;">亮色卡片 · 2列网格</div>
+    </div>
+    <div class="card-body">
+      <h3>方案 A — 亮色卡片网格</h3>
+      <p>与现有 card 风格一致（白底 + 悬停上浮），2 列自适应网格。有预览图、标题、简介、技术栈标签。干净专业。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: linear-gradient(160deg, #081428 0%, #0d1f3c 100%); padding: 24px; border-radius: 12px;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 16px; display: flex; gap: 14px; align-items: center;">
+          <div style="width: 70px; height: 70px; background: rgba(0,180,216,0.15); border-radius: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 26px;">🚀</div>
+          <div>
+            <div style="font-size: 14px; font-weight: 700; color: #fff;">项目名称</div>
+            <div style="font-size: 11px; color: rgba(255,255,255,0.55); margin-top: 3px;">项目简短描述说明</div>
+            <div style="display: flex; gap: 4px; margin-top: 8px;">
+              <span style="padding: 2px 8px; background: rgba(0,180,216,0.15); border-radius: 4px; font-size: 10px; color: #00b4d8;">Vue 3</span>
+              <span style="padding: 2px 8px; background: rgba(124,58,237,0.15); border-radius: 4px; font-size: 10px; color: #a78bfa;">TS</span>
+            </div>
+          </div>
+          <span style="margin-left: auto; color: #FF6B35; font-size: 12px; font-weight: 600; border: 1px solid rgba(255,107,53,0.3); padding: 4px 12px; border-radius: 4px;">详情 →</span>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 16px; display: flex; gap: 14px; align-items: center;">
+          <div style="width: 70px; height: 70px; background: rgba(255,107,53,0.1); border-radius: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 26px;">📊</div>
+          <div>
+            <div style="font-size: 14px; font-weight: 700; color: #fff;">可视化大屏</div>
+            <div style="font-size: 11px; color: rgba(255,255,255,0.55); margin-top: 3px;">数据可视化实时展示</div>
+            <div style="display: flex; gap: 4px; margin-top: 8px;">
+              <span style="padding: 2px 8px; background: rgba(255,107,53,0.15); border-radius: 4px; font-size: 10px; color: #FF6B35;">Echarts</span>
+            </div>
+          </div>
+          <span style="margin-left: auto; color: #FF6B35; font-size: 12px; font-weight: 600; border: 1px solid rgba(255,107,53,0.3); padding: 4px 12px; border-radius: 4px;">详情 →</span>
+        </div>
+      </div>
+      <div style="color: rgba(255,255,255,0.35); font-size: 11px; margin-top: 8px; text-align: center;">暗色列表 · 横排布局</div>
+    </div>
+    <div class="card-body">
+      <h3>方案 B — 暗色横排列表</h3>
+      <p>与 Hero 暗色区域呼应，项目以横排卡片展示。左侧图标 + 右侧信息 + 详情按钮。适合项目数量较少时更有冲击力。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: var(--bg); padding: 24px; border-radius: 12px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <div style="background: var(--card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border);">
+          <div style="width: 100%; height: 90px; background: linear-gradient(135deg, #0a1628, #0d2a4a); display: flex; align-items: center; justify-content: center; font-size: 32px;">🚀</div>
+          <div style="padding: 14px;">
+            <div style="font-size: 13px; font-weight: 700; color: var(--text);">项目名称</div>
+            <div style="font-size: 11px; color: var(--text-secondary); margin-top: 3px;">简短描述说明</div>
+          </div>
+        </div>
+        <div style="background: var(--card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border);">
+          <div style="width: 100%; height: 90px; background: linear-gradient(135deg, #1a0a2e, #2d1a4a); display: flex; align-items: center; justify-content: center; font-size: 32px;">📊</div>
+          <div style="padding: 14px;">
+            <div style="font-size: 13px; font-weight: 700; color: var(--text);">可视化大屏</div>
+            <div style="font-size: 11px; color: var(--text-secondary); margin-top: 3px;">数据可视化展示</div>
+          </div>
+        </div>
+      </div>
+      <div style="color: rgba(0,0,0,0.35); font-size: 11px; margin-top: 8px; text-align: center;">顶部色块 · 2列卡片</div>
+    </div>
+    <div class="card-body">
+      <h3>方案 C — 顶部色块卡片</h3>
+      <p>每个项目卡片顶部有独特色块（可截图预览），下方标题 + 简介。视觉区分度高，适合强调项目个性。</p>
+    </div>
+  </div>
+</div>
