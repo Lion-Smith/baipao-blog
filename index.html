@@ -865,7 +865,7 @@
     position: fixed; bottom: 28px; right: 28px;
     width: 52px; height: 40px;
     border-radius: 10px;
-    background: rgba(108, 108, 150, 0.82);
+    background: rgba(255, 178, 106, 0.82);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     color: #fff;
@@ -1590,7 +1590,8 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>Built with passion &nbsp;|&nbsp; <strong>IT白袍</strong> &nbsp;|&nbsp; 保持好奇，持续学习</p>
+      <p>Built With Passion &nbsp;|&nbsp; <strong>IT白袍</strong> &nbsp;|&nbsp; 保持好奇，持续学习</p>
+      <p>Continuously Updated And Improved &nbsp;|&nbsp; <strong>Create @ Wu</strong> &nbsp;|&nbsp;Date @ 2026</p>
     </div>
   </div>
 </footer>
@@ -1631,66 +1632,82 @@
   var projects = [
     {
       id: 'proj-1',
-      name: 'EAC400 VPN/SD-WAN 网络管理系统',
-      desc: '企业级网关设备 Web 管理系统，涵盖 WAN/LAN/VPN 全模块配置。基于 JSON Schema 动态生成复杂表单，WebSocket 实时推送 300+ 设备状态，VPN 配置效率提升 80%。',
+      name: '企业级商用EAC400网关项目',
+      desc: 'EAC400网关是一款面向企业级边缘网络接入场景的高性能网关设备，支持多WAN口链路冗余、多LAN合一、VPN隧道、精细化流量管控及多维度安全接入策略、终端设备批处理、链路聚合等专业功能。本项目为其研发了专属的Web集中管理系统，提供网关设备的统一配置管理、全状态实时监控、远程运维及批量操作能力。负责模块包含：系统状态模块、网络配置模块、流控策略模块、AC管理模块、认证上网模块、安全防护模块、VPN模块、设备维护模块。',
       icon: '🌐',
-      tags: ['Vue.js', 'TDesign', 'ECharts', 'WebSocket'],
+      tags: ['Vue.js', 'TDesign', 'ECharts', 'WebSocket', 'JSON Schema动态表单渲染', 'RESTful API'],
       demoUrl: '#'
     },
     {
       id: 'proj-2',
-      name: 'YUNCORE 云端 IoT 管理平台',
-      desc: '云端物联网设备集中管理平台，ECharts 3D 可视化呈现 AP 设备空间分布与实时数据，支持远程配置、固件升级、告警联动。',
-      icon: '☁️',
-      tags: ['Vue.js', 'TDesign', 'ECharts 3D', 'RESTful'],
-      demoUrl: 'https://lion-smith.github.io/system-dome/#/'
+      name: '云管交换机项目',
+      desc: '云管交换机项目旨在打造一款轻量化、可扩展的云端交换机管理解决方案。用户可基于云平台完成端口策略下发、VLAN业务隔离、PoE功率调度及远程故障诊断等核心运维操作，有效降低现场运维成本。产品主要面向园区、办公及安防监控等典型场景。作为前端唯一负责人，从0到1完成技术选型、架构设计及核心代码编写。',
+      icon: '🔀',
+      tags: ['Vue.js', 'TDesign', 'ECharts', 'RESTful API', 'Mock数据', '组件封装', '前端工程化'],
+      demoUrl: '#'
     },
     {
       id: 'proj-3',
-      name: 'WAPITH-AC2000 无线控制器',
-      desc: '企业级 AC 控制器 WEB 管理系统，实现 AC/AP 集中管理、CAPWAP 协议对接、VLAN/ DHCP/DNS 全链路配置、License 授权与 SNMP 监控。',
-      icon: '📶',
-      tags: ['vue-element-admin', 'Element UI', 'CAPWAP', 'SNMP'],
-      demoUrl: '#'
+      name: 'YUNCORE企业云平台',
+      desc: '企业云平台系统是企业主推的设备管理平台，主要功能是用户通过云平台"绑定设备"功能将设备绑定到云平台，可在云平台上实现对设备的配置、管理、监控等相关操作；支持多台设备绑定，实现远程管控，支持多个项目统一管理。负责大屏监控模块的界面功能开发，以接入管理平台设备上报的大量实时数据为支撑，通过ECharts图表3D绘制等技术实现可视化处理，并兼容不同显示分辨率的适配。',
+      icon: '☁️',
+      tags: ['Vue.js', 'ECharts', '3D图表', '响应式布局', '数据可视化'],
+      demoUrl: 'https://lion-smith.github.io/system-dome/'
     },
     {
       id: 'proj-4',
-      name: '智慧高速云平台',
-      desc: '高速公路综合监控云平台，集成百度地图 GPS 轨迹追踪、Marker 聚合渲染、DrivingRoute 路径规划。覆盖道路巡检、事件上报、实时路况等业务场景。',
-      icon: '🛣️',
-      tags: ['Angular', 'TypeScript', 'ng-zorro', 'Baidu Map'],
-      demoUrl: 'https://www.yunshanggaosu.com/GaoGuanTongServer/cloud/index.html'
-    },
-    {
-      id: 'proj-5',
-      name: '企业官网 SSR 重构',
-      desc: '基于 Nuxt 3 的服务端渲染企业官网，SEO 友好，Lighthouse 评分 95+。Video.js 视频背景 + CSS3/Animate.css 交互动效，100% 像素级还原设计稿。',
-      icon: '🏢',
-      tags: ['Nuxt 3', 'Vue 3', 'Element Plus', 'SSR'],
-      demoUrl: 'https://www.ldzhjt.com'
-    },
-    {
-      id: 'proj-6',
-      name: '设备巡检 App',
-      desc: '跨端移动巡检应用，集成摄像头扫码、离线存储、照片压缩上传。自定义 tabBar + cover-view 相机遮罩，一套代码覆盖 iOS/Android/小程序多端。',
-      icon: '📱',
-      tags: ['uni-app', 'Vue 2', 'uView UI', 'html5+ API'],
+      name: 'WAPI接入控制器TH-AC2000管理系统',
+      desc: 'WAPI接入控制器TH-AC2000管理系统是南方电网科技项目招标项目之一，是公司最新硬件产品TH-AC2000配套WEB端后台管理系统，整体设备控制配置模式对标华为/锐捷相关AC产品。负责模块包含：AC配置模块、AP配置模块、终端管理模块、设备管理模块、用户模块、高级设置模块、网络诊断模块。',
+      icon: '📶',
+      tags: ['Vue.js', 'vue-element-admin', 'Element UI', 'TypeScript', '自定义树状组件', '多角色权限(RBAC)', '双因子登录(ukey)'],
       demoUrl: '#'
     },
     {
+      id: 'proj-5',
+      name: '陕西西渭高速养护管理系统（施工安管小程序）',
+      desc: '陕西西渭高速养护管理系统（"施工安管"微信小程序），旨在巩固公路施工从业人员安全生产意识，提升辖区涉路施工安全管理水平，实现各方"移动端"联动管理、监管互补。负责模块包含：项目搭建、登录授权模块、施工/管理首页模块、作业申报模块、作业审批模块、作业管理模块、教培模块。',
+      icon: '📱',
+      tags: ['uni-app', 'Vue2', 'uViewUI', '微信小程序', '自定义tabbar组件', '水印相机组件', '分包加载', '分页优化'],
+      demoUrl: '#'
+    },
+    {
+      id: 'proj-6',
+      name: '陕西蓝德智慧交通企业官网',
+      desc: '蓝德智慧交通官网的开发上线，不仅为用户提供更加便捷高效的服务体验，也充分展示了蓝德智慧交通在智慧交通领域的强大实力和深厚底蕴。负责模块包含：项目搭建、首页模块、概况模块、解决方案模块、产品中心模块、关于我们模块。基于Nuxt3框架（SSR）搭建，支持服务端渲染，提升SEO与首屏加载速度。',
+      icon: '🏢',
+      tags: ['Nuxt3', 'Vue3', 'Element Plus', 'Video.js', 'SSR服务端渲染', 'Animate.css', 'CSS3动画', '响应式布局', '媒体查询', 'useFetch API封装'],
+      demoUrl: 'https://www.ldzhjt.com'
+    },
+    {
       id: 'proj-7',
-      name: '管线巡检管理系统',
-      desc: '移动端 + Web 端双端巡检平台。App 端 uni-app 集成条码扫描、音频录制、URL Scheme 跳转；Web 端 Angular 后台实现数据看板与任务调度。',
-      icon: '🔍',
-      tags: ['uni-app', 'Angular', 'ng-zorro', 'ECharts'],
+      name: '陕西延黄高速智慧仓库管理系统（App）',
+      desc: '陕西延黄高速智慧仓库管理系统（App），在适应企业原有管理流程的基础上，构建新的仓储管理信息化系统平台，协调各个环节运作，保证及时准确的进出库作业和实时透明的库存控制。负责模块包含：物资出入库模块、物资明细管理模块、车辆信息管理模块、仓储数据分析模块。',
+      icon: '📦',
+      tags: ['uni-app', 'Vue2', 'uView组件库', 'uni-ui', 'ECharts', 'html5+ Barcode模块', 'plus.webview半屏窗口', 'uni.createInnerAudioContext', 'Urlscheme跨端打开App', '条件编译'],
       demoUrl: '#'
     },
     {
       id: 'proj-8',
-      name: 'B/S 综合管理系统',
-      desc: 'Vue 2 全家桶企业级后台管理系统，RBAC 动态权限路由、COS 文件上传、Excel 导入导出、国际化多语言、Webpack CDN + gzip 首屏优化 60%。',
+      name: '陕西全省高速公路云上高速系统',
+      desc: '为高速公路运营管理提供"云上监控中心"，通过互联网全面、快速地掌握高速公路运行信息，实现高速公路监控互联网+应用，形成云网一体监控模式。负责模块包含：路障机器人模块、交通特征模块、电子交通诱导模块、施工作业模块。',
+      icon: '🛣️',
+      tags: ['Angular', 'TypeScript', 'ng-zorro-antd', '百度地图API(BMapGL)', 'ECharts', 'GPS坐标转换', '地图抽稀技术', '路径规划', '自定义信息框DOM'],
+      demoUrl: 'https://www.yunshanggaosu.com/GaoGuanTongServer/cloud/index.html'
+    },
+    {
+      id: 'proj-9',
+      name: '西安外环高速安全风险管理系统',
+      desc: '西安外环高速安全风险管理系统是一个集数字化监控、风险管理、数据分析于一体的综合性平台，为高速公路风险处置环节提供管理工具和信息载体，提高安全风险管控处置效率。包含App端（风险处置系统）和Web端（安全信息管理系统）。负责模块包含：风险源管理模块、风险过程监督模块、任务管理模块、风险记录模块。',
+      icon: '🔐',
+      tags: ['uni-app', 'uView组件库', 'Angular', 'ng-zorro-antd', '百度地图API', 'browser-image-compression图片压缩', '自定义进度条组件', 'Webpack打包优化'],
+      demoUrl: '#'
+    },
+    {
+      id: 'proj-10',
+      name: '蓝德公路运营系统',
+      desc: '该系统服务于蓝德公路产品业务线，是一个处理企业与用户与产品三方关系的系统，使用B/S架构，前后端分离模式开发。负责模块包含：产品介绍模块、用户管理模块、权限管理模块等。',
       icon: '⚙️',
-      tags: ['Vue 2', 'Vuex', 'Element UI', 'Webpack'],
+      tags: ['Vue2', 'Vue-Router', 'Vuex', 'Axios', 'Vue-cli', 'vuex-persistedstate', '腾讯云COS存储桶', '路由懒加载', '图片懒加载', 'Webpack打包优化', 'CDN加速', 'Gzip压缩', 'RBAC权限设计', '虚拟滚动列表', 'xlsx插件', 'Vue-i18n国际化', 'ScreenFull全屏'],
       demoUrl: '#'
     }
   ];
