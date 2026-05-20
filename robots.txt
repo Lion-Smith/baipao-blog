@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /assets/
+
+Sitemap: https://www.baipao.cyou/sitemap.xml
