@@ -527,11 +527,12 @@
     /* 项目介绍区域 */
     .projects-section { padding: 40px 0; }
     .projects-header { margin-bottom: 32px; }
-    .project-card { padding: 16px 18px; gap: 12px; }
+    .project-card { padding: 16px 18px; gap: 12px; flex-wrap: wrap; }
     .project-card__icon { width: 50px; height: 50px; border-radius: 10px; font-size: 22px; }
+    .project-card__info { flex: 1 1 calc(100% - 62px); min-width: 0; }
     .project-card__name { font-size: 14px; }
     .project-card__desc { font-size: 12px; }
-    .project-card__btn { padding: 5px 12px; font-size: 11px; }
+    .project-card__btn { margin-left: 62px; margin-top: 4px; padding: 5px 12px; font-size: 11px; }
   }
 
   /* --- 小屏手机 iPhone SE / 6/7/8 / X / 12/13 Mini (320px - 400px) --- */
@@ -614,12 +615,13 @@
     .projects-section { padding: 32px 0; }
     .projects-header { margin-bottom: 28px; }
     .projects-list { gap: 12px; }
-    .project-card { padding: 14px 16px; gap: 10px; border-radius: 10px; }
-    .project-card__icon { width: 42px; height: 42px; border-radius: 8px; font-size: 20px; }
+    .project-card { padding: 14px 16px; gap: 10px; border-radius: 10px; flex-wrap: wrap; }
+    .project-card__icon { width: 40px; height: 40px; border-radius: 8px; font-size: 18px; }
+    .project-card__info { flex: 1 1 calc(100% - 50px); min-width: 0; }
     .project-card__name { font-size: 13px; }
     .project-card__desc { font-size: 11px; }
     .project-card__tag { font-size: 10px; padding: 1px 8px; }
-    .project-card__btn { padding: 5px 10px; font-size: 10px; border-radius: 4px; }
+    .project-card__btn { margin-left: 50px; margin-top: 4px; padding: 5px 10px; font-size: 10px; border-radius: 4px; }
   }
 
   /* --- iPhone 14 Pro Max / 15 Pro Max / 大屏安卓 (401px - 480px) --- */
@@ -1619,6 +1621,7 @@
       tabBlogger.classList.remove('active');
       if (sideNav) sideNav.classList.add('hidden');
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   navLinks.forEach(function(link) {
@@ -1728,16 +1731,21 @@
         return '<span class="project-card__tag">' + t + '</span>';
       }).join('');
 
+      var hasUrl = proj.demoUrl && proj.demoUrl !== '#';
+      var tag = hasUrl ? 'a' : 'div';
+      var href = hasUrl ? ' href="' + proj.demoUrl + '" target="_blank" rel="noopener"' : '';
+      var btnHtml = hasUrl ? '<span class="project-card__btn">查看详情</span>' : '';
+
       html +=
-        '<a class="project-card" href="' + proj.demoUrl + '" target="_blank" rel="noopener">' +
+        '<' + tag + ' class="project-card"' + href + '>' +
           '<div class="project-card__icon">' + proj.icon + '</div>' +
           '<div class="project-card__info">' +
             '<div class="project-card__name">' + proj.name + '</div>' +
             '<div class="project-card__desc">' + proj.desc + '</div>' +
             '<div class="project-card__tags">' + tagsHtml + '</div>' +
           '</div>' +
-          '<span class="project-card__btn">查看详情</span>' +
-        '</a>';
+          btnHtml +
+        '</' + tag + '>';
     });
     projectsList.innerHTML = html;
   }
