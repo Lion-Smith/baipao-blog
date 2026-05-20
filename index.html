@@ -1761,16 +1761,11 @@
 
       var hasUrl = proj.demoUrl && proj.demoUrl !== '#';
       var hasDome = !!proj.domeUrl;
-      var isSingle = hasUrl && !hasDome;  // 单链接：整卡可点击
-      var isDouble = hasUrl && hasDome;   // 双链接：按钮组
-
-      var tag = isSingle ? 'a' : 'div';
-      var href = isSingle ? ' href="' + proj.demoUrl + '" target="_blank" rel="noopener"' : '';
 
       var actionsHtml = '';
-      if (isSingle) {
-        actionsHtml = '<span class="project-card__btn">查看详情</span>';
-      } else if (isDouble) {
+      if (hasUrl && !hasDome) {
+        actionsHtml = '<a class="project-card__btn" href="' + proj.demoUrl + '" target="_blank" rel="noopener">查看详情</a>';
+      } else if (hasUrl && hasDome) {
         actionsHtml = '<div class="project-card__actions">' +
           '<a class="project-card__btn" href="' + proj.demoUrl + '" target="_blank" rel="noopener">查看详情</a>' +
           '<a class="project-card__btn project-card__btn--dome" href="' + proj.domeUrl + '" target="_blank" rel="noopener">DOME系统</a>' +
@@ -1778,7 +1773,7 @@
       }
 
       html +=
-        '<' + tag + ' class="project-card"' + href + '>' +
+        '<div class="project-card">' +
           '<div class="project-card__icon">' + proj.icon + '</div>' +
           '<div class="project-card__info">' +
             '<div class="project-card__name">' + proj.name + '</div>' +
@@ -1786,7 +1781,7 @@
             '<div class="project-card__tags">' + tagsHtml + '</div>' +
           '</div>' +
           actionsHtml +
-        '</' + tag + '>';
+        '</div>';
     });
     projectsList.innerHTML = html;
   }
